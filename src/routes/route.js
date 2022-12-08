@@ -11,5 +11,9 @@ router.get('/test-you', function(req, res){
     res.send("very important text")
 })
 
+router.get('/test-we', function(req, res){
+    console.log("this one is made by me")
+    res.send("my new one")
+})
 
 module.exports = router;
