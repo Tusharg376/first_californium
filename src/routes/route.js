@@ -18,6 +18,7 @@ router.get('/test-me', function (req, res) {
     intro.myFunction('Sabiha')
     console.log("email from employee module", employee.myEmail)
 
+
     const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
     let result = _.first(days, 4)
     console.log(`Result from underscore function is ${result}`)
@@ -26,6 +27,9 @@ router.get('/test-me', function (req, res) {
     res.send('any dummy text from route handler 1')
 });
 
+router.get('/movies', function(req, res){
+    res.send(["Rang de basanti", "The shining", "Lord of the rings", "Batman begins"])
+})
 
 router.get('/test-me', function(req, res){
     console.log("I am here")
