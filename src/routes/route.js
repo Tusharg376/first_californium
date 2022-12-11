@@ -31,6 +31,15 @@ router.get('/movies', function(req, res){
     res.send(["Rang de basanti", "The shining", "Lord of the rings", "Batman begins"])
 })
 
+let moviesList = ["Rang de basanti", "The shining", "Lord of the rings", "Batman begins"]
+
+router.get('/newMovies/:listNumber', function(req, res){
+    console.log("kuch bhi", req.params)
+    console.log("index movie details", req.query.moviesList)
+    res.send("hi there")
+
+})
+
 router.get('/test-me', function(req, res){
     console.log("I am here")
     res.send("any dummy text from route handler 2")
@@ -73,8 +82,8 @@ router.get("/profile/:name", function(req, res){
 // Query Param example
 router.get("/shoes", function(req, res){
     console.log("The filter options for shoes are -",req.query)
-    //req.query.size
-    //req.query.brand
+    req.query.size
+    req.query.brand
     res.send("dummy shoes response")
 })
 
