@@ -26,18 +26,57 @@ router.get('/test-me', function (req, res) {
 
     res.send('any dummy text from route handler 1')
 });
-
+//problem 1
 router.get('/movies', function(req, res){
     res.send(["Rang de basanti", "The shining", "Lord of the rings", "Batman begins"])
 })
-
+// problem 2 and 3
 let moviesList = ["Rang de basanti", "The shining", "Lord of the rings", "Batman begins"]
 
 router.get('/newMovies/:listNumber', function(req, res){
-    console.log("kuch bhi", req.params)
-    console.log("index movie details", req.query.moviesList)
-    res.send("hi there")
+    if (moviesList.length > req.params.listNumber){
+        res.send(moviesList[req.params.listNumber])
+        
+    }else {
+        res.send("Invalid index")
+    }
+})
+// problem 4
+let favorites = [
+    {
+        id:1,
+        name: "the boys",
+    },
+    {
+        id:2,
+        name : "the shining",
+    },
+    {
+        id:3,
+        name: "the incredibles"
+    },
+    {
+        id:4,
+        name: "harry potter"
+    },
+    {
+        id:5,
+        name: "john wick"
+    }
+]
+router.get('/films', function(req, res){
 
+    res.send(favorites)
+
+})
+// problem 5 
+router.get('/films/:filmId', function(req , res){
+   if (favorites.length>req.params.filmId){
+    let arr = favorites[(req.params.filmId - 1)]
+    res.send(arr)}
+    else{
+        res.send("no movie exixt with this id")
+    }
 })
 
 router.get('/test-me', function(req, res){
