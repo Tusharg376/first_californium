@@ -158,6 +158,8 @@ router.post( "/post-query-2", function (req, res){
     }
     res.send( {data: finalArr , status: true})
 })
+
+//assigment problem here
 let persons= [
     {
     name: "PK",
