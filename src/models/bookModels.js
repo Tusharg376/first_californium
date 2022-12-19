@@ -6,8 +6,8 @@ const bookSchema = new mongoose.Schema ({
         required: true
     },
     price:{
-        indianPrice: Number,
-        europeanPrice: Number
+        indianPrice: String,
+        europeanPrice: String
     },
     year :{
         type: Number,
