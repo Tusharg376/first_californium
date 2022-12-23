@@ -16,8 +16,11 @@ mongoose.connect("mongodb+srv://functionup-cohort:G0Loxqc9wFEGyEeJ@cluster0.rzot
 
 app.use (
     function (req, res, next) {
-        console.log ("inside GLOBAL MW");
-        next();
+    const curIp = req.ip
+    const curUrl = req.url
+    const curDate = new Date()
+    console.log(curDate, curIp, curUrl)
+    next()
   }
   );
 
