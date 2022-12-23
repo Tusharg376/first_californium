@@ -13,4 +13,4 @@ const userSchema = new mongoose.Schema({
         default: false
     }
 })
-
+module.exports = mongoose.model('userData', userSchema )
