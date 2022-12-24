@@ -7,7 +7,10 @@ const userSchema = new mongoose.Schema({
     default: 100
     },
     address:String,
-    gender: $enum["male","female","other"],
+    gender:{ 
+        type : String,
+        enum:["male","female","other"]
+    },
     isFreeAppUser : {
         type: Boolean,
         default: false

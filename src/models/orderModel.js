@@ -1,14 +1,14 @@
-const mongoose = required('mongoose')
-const objectId = mongoose.Schema.Types.objectId
+const mongoose = require('mongoose')
+const objectId = mongoose.Schema.Types.ObjectId
 
 const orderSchema = new mongoose.Schema ({
     userId : {
         type:objectId,
-        ref: userData
+        ref: "userData"
     },
     productId:{
         type:objectId,
-        ref:products
+        ref:"products"
     },
     amount: Number,
     isFreeAppUser : {
