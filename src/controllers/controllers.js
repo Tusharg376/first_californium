@@ -18,12 +18,12 @@ const createUser = async function(req, res){
 
 const createOrder = async function(req,res){
     let data = req.body
-    if (!isValidObjectId(data.userId)){
-        res.send({msg:"enter valid userID"})
-    }
-    if (!isValidObjectId(data.productId)){
-        res.send({msg:"enter valid productId"})
-    }
+    // if (!isValidObjectId(data.userId)){
+    //     res.send({msg:"enter valid userID"})
+    // }
+    // if (!isValidObjectId(data.productId)){
+    //     res.send({msg:"enter valid productId"})
+    // }
     {
     let finalData = await orderModel.create(data)
     res.send({msg:finalData})

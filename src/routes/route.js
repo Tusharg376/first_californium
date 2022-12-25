@@ -12,6 +12,6 @@ router.post('/createProduct', controllers.createProduct)
 
 router.post("/createUser",middleWare.userValidation ,controllers.createUser)
 
-router.post("/createOrder",middleWare.userValidation, middleWare.checkUserId,controllers.createOrder)
+router.post("/createOrder",middleWare.userValidation,middleWare.checkUserId, controllers.createOrder)
 
 module.exports = router;
