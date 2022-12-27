@@ -11,7 +11,7 @@ const passwordVerify = async function(req,res,next){
     }
     next()
 }
-
+//"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjcmVhdGVMb2dpbiI6InZhaXNoYWxpQGZ1bmN0aW9udXAuY29tIiwiaWF0IjoxNjcyMTUxNzYxfQ.0-ieMbHO2qEcxHg7OE3PpQDcLBSIxvGxIl1DPse_oe4"
 const tokenValidation = async function(req,res,next){
     let data = req.headers["x-auth-token"]
     if(!data){
