@@ -9,8 +9,10 @@ const userCreate = async function(req,res){
 
 const userLogin = async function (req,res){
     let data = req.body
-    let createLogin = await userModel.findOne({emailId:"data.emailId"})
-    let result = jwt.sign({createLogin:data.emailId}, "loginCreated")
+    let createLogin = await userModel.findOne({emailId:data.emailId})
+    let payLoad = {email:data.emailId,ID:createLogin._id}
+    let result = jwt.sign(payLoad, "loginCreated")
+
     res.send({status:true, response:result})
 }
 
@@ -24,10 +26,12 @@ const userDetails = async function(req,res){
     }
 }
 
+
+
 const userEdit = async function(req,res){
     let data = req.params.userId
     let bData = req.body
-    // console.log(bData)
+
     let result = await userModel.findOneAndUpdate(
         {_id:data},
         {$set:bData},

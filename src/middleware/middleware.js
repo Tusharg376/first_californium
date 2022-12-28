@@ -11,17 +11,41 @@ const passwordVerify = async function(req,res,next){
     }
     next()
 }
-//"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjcmVhdGVMb2dpbiI6InZhaXNoYWxpQGZ1bmN0aW9udXAuY29tIiwiaWF0IjoxNjcyMTUxNzYxfQ.0-ieMbHO2qEcxHg7OE3PpQDcLBSIxvGxIl1DPse_oe4"
+
 const tokenValidation = async function(req,res,next){
     let data = req.headers["x-auth-token"]
+    let bData = req.params.userId
     if(!data){
         return res.send({status:false, msg:"token not found"})
     }
     let tokenDes = jwt.verify(data,"loginCreated")
+    
+    let createLogin = await userModel.findOne({_id:bData})
+    
+    if (tokenDes.ID != createLogin._id){
+        return res.send({status:false,msg:"User is not authorized"})
+    }
     next()
+
 }
+
 
 
 
 module.exports.tokenValidation = tokenValidation
 module.exports.passwordVerify = passwordVerify
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
