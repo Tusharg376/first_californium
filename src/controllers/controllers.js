@@ -26,8 +26,6 @@ const userDetails = async function(req,res){
     }
 }
 
-
-
 const userEdit = async function(req,res){
     let data = req.params.userId
     let bData = req.body
