@@ -1,6 +1,6 @@
 const userModel = require("../models/userModel")
 const jwt = require('jsonwebtoken')
-
+//create user
 const userCreate = async function(req,res){
     let data = req.body
     let finalData = await userModel.create(data)
